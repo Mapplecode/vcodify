@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'includes/head.html' %}
+<body>
+
+  <!-- ======= Header ======= -->
+  {% include 'includes/header.html' %}
+  <!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div id="" data-bs-interval="" class="carousel slide carousel" data-bs-ride="carousel">
+        <div class="carousel-item active" style="background-image: url(static/img/slide/slide-1.jpg)">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">CAREERS</h2>
+              <p class="animate__animated animate__fadeInDown">Would like to Work with Us ?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="applyhere" class="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Apply Here</h2>
+        <p>We are focus to hiring the right talent for the suitable project. 
+        Newly hired employee are given both general orientation which is related to the company vision,
+        mission, values, policies and procedures and job specific orientation such as his/her job duties, 
+        responsibilities, goals and current priorities.
+    </p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-10 mt-5 mt-lg-0 d-flex align-items-stretch mx-auto">
+          <form action="{% url 'apply' %}" method="post" role="form" class="php-email-form" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="name">Your Name</label>
+                <input type="text" name="name" class="form-control" id="name" required>
+              </div>
+              <div class="form-group col-md-6 mt-3 mt-md-0">
+                <label for="name">Your Email</label>
+                <input type="email" class="form-control" name="email" id="email" required>
+              </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="name">Contact No.</label>
+                  <input type="tel" maxlength="10" name="contact" class="form-control" id="name" required>
+                </div>
+                <div class="form-group col-md-6 mt-3 mt-md-0">
+                  <div class="form-group">
+                    <label for="name">Upload Resume</label>
+                    <input type="file" style="background-color:#f3f3f3;" class="form-control" name="file" id="file" required>
+                  </div>   
+                </div>
+              </div>
+            {% if context %}
+            <div class="my-3">
+              <div class="sent-message">Your request has been submitted. Thank you!</div>
+            </div>
+            {% endif %}
+
+            <div class="text-center mt-2"><button type="submit">Submit</button></div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  {% include 'includes/footer.html' %}
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+{% include 'includes/scripts.html' %}
+
+</body>
+
+</html>
